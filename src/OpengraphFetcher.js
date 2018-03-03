@@ -79,4 +79,4 @@ class OpengraphFetcher {
 	}
 }
 
-export default OpengraphFetcher
+module.exports = OpengraphFetcher
