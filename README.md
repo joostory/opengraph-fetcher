@@ -1,4 +1,4 @@
-# Opengraph Fetcher [![Build Status](travis-image)](travis-url) [![npm][npm-image]][npm-url]
+# Opengraph Fetcher [![build][travis-image]][travis-url] [![npm][npm-image]][npm-url]
 
 [travis-image]: https://travis-ci.org/joostory/opengraph-fetcher.svg?branch=master
 [travis-url]: https://npmjs.org/package/opengraph-fetcher
