@@ -1,6 +1,6 @@
-import fetch from 'isomorphic-fetch'
-import cheerio from 'cheerio'
-import { URL } from 'url'
+const fetch = require('isomorphic-fetch')
+const cheerio = require('cheerio')
+const { URL } = require('url')
 
 const makeTitle = ($) => {
 	let ogTitle = $('head meta[property="og:title"]').attr('content')
