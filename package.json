@@ -1,6 +1,6 @@
 {
   "name": "opengraph-fetcher",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Opengraph Fetcher",
   "main": "src/OpengraphFetcher.js",
   "scripts": {
