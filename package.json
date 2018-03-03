@@ -1,0 +1,20 @@
+{
+  "name": "opengraph-fetcher",
+  "version": "1.0.0",
+  "description": "Opengraph Fetcher",
+  "main": "src/OpengraphFetcher.js",
+  "scripts": {
+    "test": "jest -u --coverage"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "isomorphic-fetch": "^2.2.1",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^22.4.2"
+  }
+}
