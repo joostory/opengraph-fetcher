@@ -1,7 +1,7 @@
 # Opengraph Fetcher [![Build Status](travis-image)](travis-url) [![npm][npm-image]][npm-url]
 
-[travis-image]: https://travis-ci.org/joostory/tinymce-plugin-opengraph.svg?branch=master
-[travis-url]: https://npmjs.org/package/tinymce-plugin-opengraph
+[travis-image]: https://travis-ci.org/joostory/opengraph-fetcher.svg?branch=master
+[travis-url]: https://npmjs.org/package/opengraph-fetcher
 
 [npm-image]: https://img.shields.io/npm/v/opengraph-fetcher.svg
 [npm-url]: https://npmjs.org/package/opengraph-fetcher
