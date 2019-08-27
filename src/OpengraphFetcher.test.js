@@ -1,4 +1,4 @@
-import fetcher from './OpengraphFetcher'
+const fetcher = require('./OpengraphFetcher')
 
 test('import Opengraph Fetcher', () => {
   expect(fetcher).not.toBeNull()
