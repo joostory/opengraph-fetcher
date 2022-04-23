@@ -1,4 +1,4 @@
-const fetch = require('isomorphic-fetch')
+const axios = require('axios')
 const cheerio = require('cheerio')
 const { URL } = require('url')
 
@@ -57,8 +57,11 @@ const makeMediaUrl = ($, url) => {
 }
 
 module.exports = {
-  fetch: (url) => fetch(url)
-    .then(r => r.text())
+  fetch: (url) => axios.get(url)
+    .then(r => {
+			console.log(r)
+			return r.data
+		})
     .then(text => {
       let $ = cheerio.load(text)
 

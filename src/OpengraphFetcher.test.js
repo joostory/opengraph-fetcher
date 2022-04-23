@@ -24,13 +24,14 @@ test('fetch github', (done) => {
   fetcher.fetch('https://github.com/joostory/opengraph-fetcher')
     .then(opengraph => {
       expect(opengraph).not.toBeNull()
-      expect(opengraph.title).toBe('joostory/opengraph-fetcher')
+      expect(opengraph.title).toBe('GitHub - joostory/opengraph-fetcher')
       expect(opengraph.url).toBe('https://github.com/joostory/opengraph-fetcher')
       expect(opengraph.type).toBe('object')
       expect(opengraph.host).toBe('github.com')
       done()
     })
     .catch(e => {
+      console.log(e)
       done(e)
     })
 })
