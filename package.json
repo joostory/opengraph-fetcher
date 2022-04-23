@@ -2,7 +2,10 @@
   "name": "opengraph-fetcher",
   "version": "1.2.1",
   "description": "Opengraph Fetcher",
-  "main": "src/OpengraphFetcher.js",
+  "main": "src/index.js",
+  "bin": {
+    "opengraph-fetcher": "./bin/opengraph-fetcher.js"
+  },
   "scripts": {
     "test": "jest -u --coverage"
   },
