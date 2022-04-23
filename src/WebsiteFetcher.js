@@ -58,10 +58,7 @@ const makeMediaUrl = ($, url) => {
 
 module.exports = {
   fetch: (url) => axios.get(url)
-    .then(r => {
-			console.log(r)
-			return r.data
-		})
+    .then(r => r.data)
     .then(text => {
       let $ = cheerio.load(text)
 
