@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fetcher = require('../src')
 const { argv, exit } = require('process')
 
