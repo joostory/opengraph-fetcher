@@ -31,7 +31,6 @@ test('fetch github', (done) => {
       done()
     })
     .catch(e => {
-      console.log(e)
       done(e)
     })
 })
