@@ -1,6 +1,7 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 const { URL } = require('url')
+const { makeValidUrl } = require("./utils")
 
 const makeTitle = ($) => {
 	let ogTitle = $('head meta[property="og:title"]').attr('content')
@@ -56,21 +57,23 @@ const makeMediaUrl = ($, url) => {
 	}
 }
 
-module.exports = {
-  fetch: (url) => axios.get(url)
-    .then(r => r.data)
-    .then(text => {
-      let $ = cheerio.load(text)
+const fetch = async (url) => {
+	const r = await axios.get(url)
+	const text = r.data
+	
+	let $ = cheerio.load(text)
+	let opengraph = {
+		title: makeTitle($),
+		description: makeDescription($),
+		url: makeUrl($, url),
+		image: makeImage($),
+		type: makeType($),
+		mediaUrl: makeMediaUrl($)
+	}
+	opengraph.host = new URL(makeValidUrl(opengraph.url)).hostname
+	return opengraph
+}
 
-      let opengraph = {
-        title: makeTitle($),
-        description: makeDescription($),
-        url: makeUrl($, url),
-        image: makeImage($),
-        type: makeType($),
-        mediaUrl: makeMediaUrl($)
-      }
-      opengraph.host = new URL(opengraph.url).hostname
-      return opengraph
-    })
+module.exports = {
+  fetch: fetch
 }
