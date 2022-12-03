@@ -61,8 +61,6 @@ async function fetch(url) {
 	const r = await axios.get(url)
 	const text = r.data
 	
-	console.log("text", text)
-
 	let $ = cheerio.load(text)
 	let opengraph = {
 		title: makeTitle($),
