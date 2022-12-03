@@ -3,7 +3,7 @@ const cheerio = require('cheerio')
 const { URL } = require('url')
 const { makeValidUrl } = require("./utils")
 
-const makeTitle = ($) => {
+function makeTitle($) {
 	let ogTitle = $('head meta[property="og:title"]').attr('content')
 	let htmlTitle = $('head title').text()
 	if (ogTitle) {
@@ -15,7 +15,7 @@ const makeTitle = ($) => {
 	}
 }
 
-const makeDescription = ($) => {
+function makeDescription($) {
 	let ogDescription = $('head meta[property="og:description"]').attr('content')
 	let htmlDescription = $('head meta[name="description"]').attr('content')
 	if (ogDescription) {
@@ -27,19 +27,19 @@ const makeDescription = ($) => {
 	}
 }
 
-const makeUrl = ($, url) => {
+function makeUrl($, url) {
 	const og = $('head meta[property="og:url"]').attr('content')
 	let result = og? og : url
 	return result.replace(/^\/\//, 'http://')
 }
 
-const makeImage = ($) => {
+function makeImage($) {
 	const og = $('head meta[property="og:image"]').attr('content')
 	let result = og? og : ''
 	return result.replace(/^\/\//, 'http://')
 }
 
-const makeType = ($, url) => {
+function makeType($, url) {
 	let og = $('head meta[property="og:type"]').attr('content')
 	if (og) {
 		return og
@@ -48,7 +48,7 @@ const makeType = ($, url) => {
 	}
 }
 
-const makeMediaUrl = ($, url) => {
+function makeMediaUrl($, url) {
 	let og = $('head meta[property="og:video:url"]').attr('content')
 	if (og) {
 		return og
@@ -57,10 +57,12 @@ const makeMediaUrl = ($, url) => {
 	}
 }
 
-const fetch = async (url) => {
+async function fetch(url) {
 	const r = await axios.get(url)
 	const text = r.data
 	
+	console.log("text", text)
+
 	let $ = cheerio.load(text)
 	let opengraph = {
 		title: makeTitle($),
