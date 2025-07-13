@@ -1,6 +1,6 @@
 {
   "name": "opengraph-fetcher",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Opengraph Fetcher",
   "main": "src/index.js",
   "types": "src/index.d.ts",
