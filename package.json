@@ -3,6 +3,7 @@
   "version": "1.4.1",
   "description": "Opengraph Fetcher",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "bin": {
     "opengraph-fetcher": "./bin/opengraph-fetcher.js"
   },
