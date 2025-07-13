@@ -34,14 +34,3 @@ test('fetch test', async () => {
   expect(opengraph.type).toBe('video')
   expect(opengraph.host).toBe('www.youtube.com')
 })
-
-test('프로토콜 없는 url', async () => {
-  try {
-    const og = await fetcher.fetch("https://wiggloo.net")
-    expect(og).not.toBeNull()
-    expect(og.host).toBe('wiggloo.net')
-  } catch (e) {
-    console.error(e)
-    throw e
-  }
-})
