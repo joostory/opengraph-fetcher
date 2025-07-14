@@ -1,15 +1,16 @@
 import axios from 'axios';
+import { Opengraph } from './opengraph'
 
 function findYoutubeKey(targetUrl: string): string | null {
   const u = new URL(targetUrl);
   if (u.hostname == 'youtu.be') {
-    return u.pathname.substr(1);
+    return u.pathname.substring(1);
   } else {
     return u.searchParams.get('v');
   }
 }
 
-async function fetch(url: string): Promise<any> {
+async function fetch(url: string): Promise<Opengraph> {
   let youtubeKey = findYoutubeKey(url);
   let youtubeUrl = `https://www.youtube.com/watch?v=${youtubeKey}`;
   let requestUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(youtubeUrl)}&type=json`;
@@ -26,6 +27,6 @@ async function fetch(url: string): Promise<any> {
   };
 }
 
-export {
+export default {
   fetch
 };

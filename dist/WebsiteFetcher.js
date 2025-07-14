@@ -45,7 +45,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetch = fetch;
 const axios_1 = __importDefault(require("axios"));
 const cheerio = __importStar(require("cheerio"));
 const url_1 = require("url");
@@ -113,6 +112,7 @@ function fetch(url) {
             title: makeTitle($),
             description: makeDescription($),
             url: makeUrl($, url),
+            host: '',
             image: makeImage($),
             type: makeType($),
             mediaUrl: makeMediaUrl($)
@@ -121,3 +121,6 @@ function fetch(url) {
         return opengraph;
     });
 }
+exports.default = {
+    fetch
+};

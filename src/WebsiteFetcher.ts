@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { URL } from 'url';
 import { makeValidUrl } from "./utils";
+import { Opengraph } from './opengraph'
 
 function makeTitle($: cheerio.Root): string {
 	let ogTitle = $('head meta[property="og:title"]').attr('content');
@@ -57,7 +58,7 @@ function makeMediaUrl($: cheerio.Root): string {
 	}
 }
 
-async function fetch(url: string): Promise<any> {
+async function fetch(url: string): Promise<Opengraph> {
 	const r = await axios.get(url);
 	const text = r.data;
 	
@@ -66,14 +67,15 @@ async function fetch(url: string): Promise<any> {
 		title: makeTitle($),
 		description: makeDescription($),
 		url: makeUrl($, url),
+		host: '',
 		image: makeImage($),
 		type: makeType($),
 		mediaUrl: makeMediaUrl($)
 	};
-	(opengraph as any).host = new URL(makeValidUrl(opengraph.url)).hostname;
+	opengraph.host = new URL(makeValidUrl(opengraph.url)).hostname;
 	return opengraph;
 }
 
-export {
+export default {
   fetch
 }

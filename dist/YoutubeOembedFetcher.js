@@ -12,12 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetch = fetch;
 const axios_1 = __importDefault(require("axios"));
 function findYoutubeKey(targetUrl) {
     const u = new URL(targetUrl);
     if (u.hostname == 'youtu.be') {
-        return u.pathname.substr(1);
+        return u.pathname.substring(1);
     }
     else {
         return u.searchParams.get('v');
@@ -41,3 +40,6 @@ function fetch(url) {
         };
     });
 }
+exports.default = {
+    fetch
+};
