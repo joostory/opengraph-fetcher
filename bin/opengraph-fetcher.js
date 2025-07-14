@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const fetcher = require('../src')
+const fetcher = require('../dist')
 const { argv, exit } = require('process')
 
 if (argv.length < 3) {

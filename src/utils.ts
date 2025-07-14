@@ -1,10 +1,10 @@
-const makeValidUrl = (url) => {
+const makeValidUrl = (url: string): string => {
 	if (!url.match(/https?:\/\//)) {
     return `http://${url}`
   }
   return url
 }
 
-module.exports = {
-  makeValidUrl: makeValidUrl
+export {
+  makeValidUrl
 }
