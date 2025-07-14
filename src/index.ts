@@ -4,7 +4,7 @@ import WebsiteFetcher from './WebsiteFetcher';
 import YoutubeOembedFetcher from './YoutubeOembedFetcher';
 import { Opengraph } from './opengraph'
 
-export function fetch(url: string): Promise<Opengraph> {
+function fetch(url: string): Promise<Opengraph> {
   const validUrl = makeValidUrl(url);
   let hostname = new URL(validUrl).hostname;
   if (hostname.indexOf("youtube.com") >= 0
@@ -13,4 +13,8 @@ export function fetch(url: string): Promise<Opengraph> {
   } else {
     return WebsiteFetcher.fetch(validUrl);
   }
+}
+
+export default {
+  fetch
 }
