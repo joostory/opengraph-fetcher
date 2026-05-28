@@ -2,6 +2,10 @@
   "name": "opengraph-fetcher",
   "version": "0.0.0",
   "description": "Opengraph Fetcher",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joostory/opengraph-fetcher.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
