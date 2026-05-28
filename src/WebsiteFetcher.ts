@@ -4,7 +4,7 @@ import { URL } from 'url';
 import { makeValidUrl } from "./utils";
 import { Opengraph } from './opengraph'
 
-function makeTitle($: cheerio.Root): string {
+function makeTitle($: cheerio.CheerioAPI): string {
 	let ogTitle = $('head meta[property="og:title"]').attr('content');
 	let htmlTitle = $('head title').text();
 	if (ogTitle) {
@@ -16,7 +16,7 @@ function makeTitle($: cheerio.Root): string {
 	}
 }
 
-function makeDescription($: cheerio.Root): string {
+function makeDescription($: cheerio.CheerioAPI): string {
 	let ogDescription = $('head meta[property="og:description"]').attr('content');
 	let htmlDescription = $('head meta[name="description"]').attr('content');
 	if (ogDescription) {
@@ -28,19 +28,19 @@ function makeDescription($: cheerio.Root): string {
 	}
 }
 
-function makeUrl($: cheerio.Root, url: string): string {
+function makeUrl($: cheerio.CheerioAPI, url: string): string {
 	const og = $('head meta[property="og:url"]').attr('content');
 	let result = og? og : url;
 	return result.replace(/^\/\//, 'http://');
 }
 
-function makeImage($: cheerio.Root): string {
+function makeImage($: cheerio.CheerioAPI): string {
 	const og = $('head meta[property="og:image"]').attr('content');
 	let result = og? og : '';
 	return result.replace(/^\/\//, 'http://');
 }
 
-function makeType($: cheerio.Root): string {
+function makeType($: cheerio.CheerioAPI): string {
 	let og = $('head meta[property="og:type"]').attr('content');
 	if (og) {
 		return og;
@@ -49,7 +49,7 @@ function makeType($: cheerio.Root): string {
 	}
 }
 
-function makeMediaUrl($: cheerio.Root): string {
+function makeMediaUrl($: cheerio.CheerioAPI): string {
 	let og = $('head meta[property="og:video:url"]').attr('content');
 	if (og) {
 		return og;
